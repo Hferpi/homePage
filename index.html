@@ -3,51 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenidos</title>
-  <link rel="stylesheet" href="style.css">
+    <title>Hello!</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-    <h1 id="welcome-text">😄¡Bienvenidos!</h1>
+        <h1 id="welcome-text">😄¡Bienvenidos!</h1>
+        <p id="parrafo">Esperamos que disfruten de su estancia.</p>
 
-    <p id="parrafo">Esperamos que disfruten de su estancia.</p>
+        <!-- Botón para conectarse al Wi-Fi -->
+        <button onclick="showWifiQr()">Conectarse al Wi-Fi</button>
+        
+        <!-- Contenedor para mostrar el código QR -->
+        <canvas id="wifi-qr" style="display: none; margin: 25px auto;"></canvas>
 
-    <!-- Botón para conectarse al Wi-Fi -->
-    <button onclick="connectToWifi()">Conectarse al Wi-Fi</button>
-
-    <!-- Enlace para descargar el manual -->
-    <div class="manual">
-        <button>
-            <a href="https://drive.google.com/file/d/15vgw7wt0oPFvPK3F0W6IgzT3JpEvq72C/view?usp=drive_link" target="manual">Descargar Manual</a>
-        </button>
+        <!-- Enlace para descargar el manual -->
+        <div class="manual">
+            <button>
+                <a href="https://drive.google.com/file/d/15vgw7wt0oPFvPK3F0W6IgzT3JpEvq72C/view?usp=drive_link" target="manual">Descargar Manual</a>
+            </button>
+        </div>
     </div>
-</div>
 
+    <!-- Cargar la librería QRCode.js -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
     <script>
-      const welcomeTexts = ["😄¡Bienvenidos!", "😁Welcome!", "🤩Bienvenue!"];
-const parrafoTexts = ["Esperamos que disfruten de su estancia.", "We hope you enjoy your stay.", "Nous espérons que vous apprécierez votre séjour."];
-let index = 0;
+        // Función para mostrar el código QR
+        function showWifiQr() {
+            const ssid = "HOMEinv";  // Nombre de la red Wi-Fi
+            const password = "home12580";  // Contraseña de la red
+            const qrContainer = document.getElementById("wifi-qr");  // Contenedor para el QR
+            
+            // Limpiar el contenido anterior (si existe) antes de generar uno nuevo
+            qrContainer.innerHTML = '';
 
-function changeTexts() {
-    const welcomeElement = document.getElementById("welcome-text");
-    const parrafoElement = document.getElementById("parrafo");
+            // Crear el string para el código QR
+            const wifiString = `WIFI:T:WPA;S:${ssid};P:${password};;`;
 
-    welcomeElement.textContent = welcomeTexts[index];
-    parrafoElement.textContent = parrafoTexts[index];
+            // Usar la librería QRCode.js para generar el QR en el canvas
+            QRCode.toCanvas(qrContainer, wifiString, { width: 200 }, function (error) {
+                if (error) {
+                    console.error(error);
+                } else {
+                    console.log("Código QR generado con éxito");
+                }
+            });
 
-    index = (index + 1) % welcomeTexts.length;
-}
-
-// Cambia ambos textos cada 2 segundos
-setInterval(changeTexts, 2000);
-
-        function connectToWifi() {
-            // Cambia estos valores por los de tu red Wi-Fi
-            const ssid = "HOMEinv";
-            const password = "home12580";
-
-            // Intenta conectar al Wi-Fi automáticamente (solo funciona en navegadores y sistemas compatibles)
-            window.location.href = `WIFI:T:WPA;S:${ssid};P:${password};;`;
+            // Mostrar el contenedor del QR (que es un canvas)
+            qrContainer.style.display = "block";
         }
     </script>
 </body>
