@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'quicksand';
+    src: url(./font/Quicksand-VariableFont_wght.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: 'quicksand';
+    text-align: center;
+    padding: 20px;
+   background: #ece5ce;
+   
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    padding: 40px;
+    border-radius: 15px;
+    border-top-left-radius: 37px 140px;
+  border-top-right-radius: 23px 130px;
+  border-bottom-left-radius: 110px 19px;
+  border-bottom-right-radius: 120px 24px;
+  border: solid 3px #6e7491;
+   background-image: url(./img/fondo2.jpeg);
+   background-size: cover;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4)
+}
+h1 {
+    font-size: 40px;
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5); 
+    margin: 20px 15px;
+    color: #e08e79;
+   
+    
+}
+p{
+    color: #000000;
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 17px;
+}
+button {
+    background-color: #c5e0dc;
+    color: #333333;
+    padding: 10px 20px;
+    border: 0.5px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 10px 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    
+}
+button:hover {
+    background-color: #7fc2b8;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+a {
+    text-decoration: none;
+    color: #333333;
+}
+.manual {
+    display: inline-block;
+    margin-top: 20px;
+}
