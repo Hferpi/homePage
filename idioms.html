@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <a class="home" href="index.html">
+            <img src="./img/iconHome.png" alt="home">
+          </a> 
+        <h1 id="welcome-text">😄¡Bienvenidos!</h1>
+        <p id="parrafo">Esperamos que disfruten de su estancia.</p>
+        <div class="manual">
+
+            <button>
+                <a href="https://www.canva.com/design/DAGX-STEaiA/lKe9HdJ0KaPNm4ASlHgvNw/edit?utm_content=DAGX-STEaiA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="manual">🇪🇸 Descargar Manual</a>
+            </button>
+
+            <button>
+                <a href="https://www.canva.com/design/DAGa8pFbq3g/DbZsQ0N9pSXxLqTda9f_1Q/edit?utm_content=DAGa8pFbq3g&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="manual">🇬🇧 Download the manual</a>
+            </button>
+
+
+            <button>
+                <a href="https://www.canva.com/design/DAGa8sWaKJI/XZhZRnlwtCXqHMig0tg6VQ/edit?utm_content=DAGa8sWaKJI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="manual">🇫🇷 Télécharger le manuel</a>
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+           const welcomeTexts = ["😄¡Bienvenidos!", "😁Welcome!", "🤩Bienvenue!"];
+const parrafoTexts = ["Esperamos que disfruten de su estancia.", "We hope you enjoy your stay.", "Nous espérons que vous apprécierez votre séjour."];
+let index = 0;
+
+function changeTexts() {
+    const welcomeElement = document.getElementById("welcome-text");
+    const parrafoElement = document.getElementById("parrafo");
+
+    welcomeElement.textContent = welcomeTexts[index];
+    parrafoElement.textContent = parrafoTexts[index];
+
+    index = (index + 1) % welcomeTexts.length;
+}
+
+// Cambia ambos textos cada 2 segundos
+setInterval(changeTexts, 2000);
+
+    </script>
+</body>
+
+</html>

@@ -33,7 +33,14 @@ body {
   border: solid 3px #6e7491;
    background-image: url(./img/fondo2.jpeg);
    background-size: cover;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4)
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.home{
+    position: absolute;
+    top: 25px;
+    right: 25px;
 }
 h1 {
     font-size: 40px;

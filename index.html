@@ -1,39 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello!</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <h1 id="welcome-text">😄¡Bienvenidos!</h1>
         <p id="parrafo">Esperamos que disfruten de su estancia.</p>
 
         <!-- Botón para conectarse al Wi-Fi -->
-        <button onclick="showWifiQr()">Conectarse al Wi-Fi</button>
-        
+        <button onclick="showWifiQr()">Wi-Fi</button>
+
         <!-- Contenedor para mostrar el código QR -->
         <canvas id="wifi-qr" style="display: none; margin: 25px auto;"></canvas>
 
         <!-- Enlace para descargar el manual -->
         <div class="manual">
             <button>
-                <a href="https://drive.google.com/file/d/15vgw7wt0oPFvPK3F0W6IgzT3JpEvq72C/view?usp=drive_link" target="manual">Descargar Manual</a>
+                <a href="idioms.html">Manual</a>
             </button>
         </div>
+        <button>
+            <a href="about.html">About Me</a>
+        </button>
     </div>
 
     <!-- Cargar la librería QRCode.js -->
     <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
     <script>
+        const welcomeTexts = ["😄¡Bienvenidos!", "😁Welcome!", "🤩Bienvenue!"];
+        const parrafoTexts = ["Esperamos que disfruten de su estancia.", "We hope you enjoy your stay.", "Nous espérons que vous apprécierez votre séjour."];
+        let index = 0;
+
+        function changeTexts() {
+            const welcomeElement = document.getElementById("welcome-text");
+            const parrafoElement = document.getElementById("parrafo");
+
+            welcomeElement.textContent = welcomeTexts[index];
+            parrafoElement.textContent = parrafoTexts[index];
+
+            index = (index + 1) % welcomeTexts.length;
+        }
+
+        // Cambia ambos textos cada 2 segundos
+        setInterval(changeTexts, 2000);
         // Función para mostrar el código QR
         function showWifiQr() {
             const ssid = "HOMEinv";  // Nombre de la red Wi-Fi
             const password = "home12580";  // Contraseña de la red
             const qrContainer = document.getElementById("wifi-qr");  // Contenedor para el QR
-            
+
             // Limpiar el contenido anterior (si existe) antes de generar uno nuevo
             qrContainer.innerHTML = '';
 
@@ -54,4 +75,5 @@
         }
     </script>
 </body>
+
 </html>
